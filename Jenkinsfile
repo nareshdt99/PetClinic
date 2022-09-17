@@ -38,7 +38,7 @@ pipeline {
 	         steps {
                 // step4
                 echo 'codecoverage..'
-		            sh script: '/usr/share/maven/bin/mvn cobertura:cobertura -Dcobertura.report.format=xml'
+		            sh script: '/opt/maven/bin/mvn cobertura:cobertura -Dcobertura.report.format=xml'
            }
 	         post {
                success {
@@ -50,7 +50,7 @@ pipeline {
 	         steps {
                 // step5
                 echo 'package......'
-		            sh script: '/usr/share/maven/bin/mvn package'	
+		            sh script: '/opt/maven/bin/mvn package'	
            }		
         }
     }
