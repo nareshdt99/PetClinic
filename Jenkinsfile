@@ -6,14 +6,14 @@ pipeline {
                 // step1 
                 echo 'compiling..'
 		            git url: 'https://github.com/lerndevops/PetClinic'
-		            sh script: '/usr/share/maven/bin/mvn compile'
+		            sh script: '/opt/maven/bin/mvn compile'
            }
         }
         stage('codereview-pmd') {
 	         steps {
                 // step2
                 echo 'codereview..'
-		            sh script: '/usr/share/maven/bin/mvn -P metrics pmd:pmd'
+		            sh script: '/opt/maven/bin/mvn -P metrics pmd:pmd'
            }
 	         post {
                success {
@@ -25,7 +25,7 @@ pipeline {
 	          steps {
                 // step3
                 echo 'unittest..'
-	               sh script: '/usr/share/maven/bin/mvn test'
+	               sh script: '/opt/maven/bin/mvn test'
             }
 	          post {
                success {
